@@ -48,7 +48,7 @@ class NewVisitorTest(LiveServerTestCase):
         self.wait_for_row_in_list_table('2: Use peacock feathers to make a fly')
 
 
-        self.fail('Finish the test!')
+#        self.fail('Finish the test!')
 
         #[...rest of comment as before]
     
@@ -70,7 +70,7 @@ class NewVisitorTest(LiveServerTestCase):
         self.assertNotIn('Buy peacock feathers',page_text)
         self.assertNotIn('make my fly', page_text)
 
-        inputbox = self.browser.find_element_by_id('in_new_item')
+        inputbox = self.browser.find_element_by_id('id_new_item')
         inputbox.send_keys('Buy milk')
         inputbox.send_keys(Keys.ENTER)
         self.wait_for_row_in_list_table('1: Buy milk')
