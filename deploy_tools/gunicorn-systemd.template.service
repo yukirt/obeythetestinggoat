@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicron server for DOMAIN
+
+[Service]
+Restart=on-failure
+User=ubuntu
+WorkingDirectory=/home/user/sites/DOMAIN
+EnvironmentFile=/home/user/sites/DOMAIN/.env
+
+ExecStart=/home/user/sites/DOMAIN/virtualenv/bin/gunicron --bind unix:/tmp/DOMAIN.socket superlist.wsgi:application
+
+[Install]
+WanteBy=multi-user.target
