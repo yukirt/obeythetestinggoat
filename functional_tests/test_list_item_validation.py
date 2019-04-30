@@ -60,17 +60,3 @@ class ItemValidationTest(FunctionTest):
             self.browser.find_element_by_css_selector('.has-error').text,
             "You've already got this in your list"
         ))
-
-    def test_duplicate_item_are_invalid(self):
-        list_ = List.objects.create()
-        Item.objects.creae(lost=list_, text='bla')
-        with self.assertRaises(ValidationError):
-            item = Item(list=list_, text='bla')
-            item.full_clean()
-
-    def test_CAN_save_same_item_to_different_lists(self):
-        list1 = List.objects.create()
-        list2 = List.objects.create()
-        Item.objects.create(list=list1, text='bla')
-        item = Item(list=list2, text='bla')
-        item.full_clean()
