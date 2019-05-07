@@ -1,5 +1,6 @@
 from django.test import TestCase
 from django.contrib.auth import get_user_model
+from django.contrib import auth
 from accounts.models import Token
 
 User = get_user_model()
