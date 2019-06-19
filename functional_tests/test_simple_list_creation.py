@@ -2,7 +2,6 @@ from .base import FunctionTest
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
-
 class NewVisitorTest(FunctionTest):
 
     def test_can_start_a_list_for_one_user(self):
